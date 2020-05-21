@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'GangsterGrotesk';
+    src: url(http://localhost/myTemply/wp-content/themes/TheSite/fonts/GangsterGrotesk-Regular.eot);
+    src: url(http://localhost/myTemply/wp-content/themes/TheSite/fonts/GangsterGrotesk-Regular.eot?#iefix) format('embedded-opentype'),
+    url(http://localhost/myTemply/wp-content/themes/TheSite/fonts/GangsterGrotesk-Regular.woff) format('woff'),
+    url(http://localhost/myTemply/wp-content/themes/TheSite/fonts/GangsterGrotesk-Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal; }
+    
+    body {font-family: 'GangsterGrotesk' ;}
+    .alt-font {font-family: 'GangsterGrotesk';}
+    .main-font {font-family: 'GangsterGrotesk';}
+
 header {
     background:#004385; 
     width:100%; 
@@ -66,4 +79,10 @@ header .top-bar .menu-item-has-children .sub-menu > .menu-item-has-children:hove
 header .top-bar .sub-menu li .sub-menu{
     top:0;
     left:100%;
+}
+.blue-hero{
+    background-color: #016fb9;
+    color:#ff9505;
+    text-align: center;
+    padding: 50px;
 }

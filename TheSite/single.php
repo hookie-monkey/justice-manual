@@ -1,6 +1,9 @@
 <?php get_header();?>
-<div class="row blue-hero">
-<h1><?php the_title();?></h1>
+
+<div class="blue-hero">
+    <div class="container">
+        <h1><?php the_title();?></h1>
+    </div>
 </div>
 <div class="container">
  
@@ -15,5 +18,5 @@
 </div>
 
 
-
+   
 <?php get_footer();?>
