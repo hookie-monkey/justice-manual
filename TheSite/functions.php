@@ -41,3 +41,47 @@ register_nav_menus(
 
     add_image_size ('blog-large', 800, 400, true);
     add_image_size ('blog-small', 300, 200, true);
+
+    //widgets
+
+
+    //news
+
+    function my_first_post_type()
+
+        {
+            $args = array(
+
+                'labels' => array('name' => "News"),
+                'hierarchical'=>true, 
+                'public'=> true,
+                'has_archive' => true,
+                'menu_icon' => 'dashicons-media-text',
+                'suports' => array ('title', 'editor', 'thumbnail'),
+
+            );
+
+            register_post_type('news', $args);
+
+
+        }
+    add_action('init', 'my_first_post_type');
+
+
+    // taxonomy new
+
+    function my_first_taxonomy()
+    {
+
+        $args = array(
+
+            'labels' => array(
+                'name' =>'Types',
+                'singular_name' => 'Type',
+            ),
+
+
+        );
+
+
+    }
