@@ -26,6 +26,7 @@ add_action('wp_enqueue_scripts','load_js');
 
 add_theme_support('menus');
 add_theme_support('post-thumbnails');
+add_theme_support('widgets');
 
 // my menus
 
@@ -42,7 +43,40 @@ register_nav_menus(
     add_image_size ('blog-large', 800, 400, true);
     add_image_size ('blog-small', 300, 200, true);
 
-    //widgets
+    //sidebars
+    function sidebars_hero(){
+
+        register_sidebar(
+
+            array(
+
+                'name'=> 'Page Sidebar',
+                'id' => 'page-sidebar',
+                'before-title'=> '<h4 class="widget-title">',
+                'after_title' => '</h4>'
+            )
+
+
+            );
+
+        register_sidebar(
+
+                array(
+    
+                    'name'=> 'Blog Sidebar',
+                    'id' => 'blog-sidebar',
+                    'before-title'=> '<h4 class="widget-title">',
+                    'after_title' => '</h4>'
+                )
+    
+    
+                );
+    
+
+
+
+    }
+    add_action('widgets_init' , 'sidebars_hero');
 
 
     //news
@@ -52,12 +86,14 @@ register_nav_menus(
         {
             $args = array(
 
-                'labels' => array('name' => "News"),
-                'hierarchical'=>true, 
+                'labels' => array('name' => "News",
+                                  'singular_name'=> 'new',
+                ),
+                'hierarchical'=> true, 
                 'public'=> true,
                 'has_archive' => true,
                 'menu_icon' => 'dashicons-media-text',
-                'suports' => array ('title', 'editor', 'thumbnail'),
+                'supports' => array ('title', 'editor', 'thumbnail', 'excerpt'),
 
             );
 
@@ -69,19 +105,22 @@ register_nav_menus(
 
 
     // taxonomy new
-
     function my_first_taxonomy()
-    {
+        {
+    
+            $args = array(
 
-        $args = array(
-
-            'labels' => array(
-                'name' =>'Types',
-                'singular_name' => 'Type',
-            ),
-
-
-        );
+            'labels' => array('name' =>'Articles',
+                              'singular_name' => 'Article',
+                            ),
+            'public' => true,
+            'hierarchical' =>true,
 
 
-    }
+    );
+
+    register_taxonomy('articles', array('news'), $args);
+
+
+}
+add_action('init', 'my_first_taxonomy');

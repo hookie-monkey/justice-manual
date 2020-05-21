@@ -1,6 +1,6 @@
 <?php if ( have_posts() ): while ( have_posts() ): the_post();?>
 
-<p><?php echo get_the_date();?></p>
+
 
 <?php the_content();?>
 
@@ -27,6 +27,10 @@ foreach($categories as $cat):?>
 
     <?php echo $cat->name;?></a>
 </p>
+
+
 <?php endforeach; ?>
+
+<p><?php echo get_the_date();?></p>
 
     <?php endwhile; else: endif;?>
