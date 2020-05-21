@@ -11,7 +11,7 @@
 
             <h3><?php the_title();?></h3>
              <?php the_excerpt();?>
-             <a href="<?php the_permalink();?>" class="btn btn-success">Read more</a>
+             <a href="<?php the_permalink();?>" class="btn btn-dark">Read more</a>
              </div><!---end blog content-->
         </div><!---end card body-->
     </div><!---end card-->

@@ -1,9 +1,5 @@
 <?php get_header();?>
-<div class="dark-villain">
-    <div class="container">
-        <h1><?php the_title();?></h1>
-    </div>
-</div>
+
 <div class="container">
 
     <h1><?php echo single_cat_title();?></h1>
