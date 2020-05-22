@@ -1,36 +1,23 @@
 <?php if ( have_posts() ): while ( have_posts() ): the_post();?>
+<div class="row justify-content-start">
+    <div class="container">
+    <div class="card mb-3 ">
+        <div class="card-body d-flex justify-content-center align-item-center">
+<div class="col-4">
+        <?php if(has_post_thumbnail()):?>
+    
+    <img src="<?php the_post_thumbnail_url('blog-small');?>" alt="<?php the_title();?>" class="img-responsive img-fluid  img-thumbnail mr-4" >
+<?php endif;?>
+</div>
+<div class="col-8  blog-content">
 
+            <h3><?php the_title();?></h3>
+             <?php the_excerpt();?>
+             <a href="<?php the_permalink();?>" class="btn btn-dark">Read more</a>
+             </div><!---end blog content-->
+        </div><!---end card body-->
+    </div><!---end card-->
+    </div>
+ </div> 
+<?php endwhile; else: endif;?>
 
-
-<?php the_content();?>
-
-<?php 
- $fname = get_the_author_meta ('first_name'); ?>
- <p> Posted by <?php echo $fname;?> </p>
- 
-<?php $tags = get_the_tags();
-if($tags):
-foreach($tags as $tag):?>
-
-
-    <a href="<?php echo get_tag_link($tag->term_id);?> " class="badge badge-success">
-        <?php echo $tag->name;?>
-    </a>
-
-<?php endforeach; endif;?>
-
-<?php
-$categories = get_the_category();
-foreach($categories as $cat):?>
-
-<p><a href="<?php echo get_category_link($cat-> term_id);?>">
-
-    <?php echo $cat->name;?></a>
-</p>
-
-
-<?php endforeach; ?>
-
-<p><?php echo get_the_date();?></p>
-
-    <?php endwhile; else: endif;?>
