@@ -19,6 +19,7 @@ function load_js()
     wp_enqueue_script('jquery');
     wp_register_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', 'jquery', false, true);
     wp_enqueue_script('bootstrap');
+    
 }
 add_action('wp_enqueue_scripts','load_js');
 
@@ -93,7 +94,7 @@ register_nav_menus(
                 'public'=> true,
                 'has_archive' => true,
                 'menu_icon' => 'dashicons-media-text',
-                'supports' => array ('title', 'editor', 'thumbnail', 'excerpt'),
+                'supports' => array ('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
 
             );
 
@@ -124,3 +125,24 @@ register_nav_menus(
 
 }
 add_action('init', 'my_first_taxonomy');
+
+// masonry init
+
+
+function masonry_script() {
+ 
+wp_register_script('my_masonry', get_stylesheet_uri(), '/js/custom.js', array('jquery'),'1.1', true);
+ 
+wp_enqueue_script('my_masonry');
+}
+  
+add_action( 'wp_enqueue_scripts', 'masonry_script' );  
+
+// include custom jQuery
+function shapeSpace_include_custom_jquery() {
+
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+
+}
+add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
